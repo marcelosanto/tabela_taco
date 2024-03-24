@@ -52,22 +52,22 @@ docker build -t go-alimentos .
 
  ### Execute o contêiner Docker
 ```bash
-docker run -p 8080:8080 go-alimentos
+docker run -p 5000:5000 go-alimentos
 ```
 
-O aplicativo estará disponível em http://localhost:8080.
+O aplicativo estará disponível em http://localhost:5000.
 
 ## Exemplo de Uso
 
 ### 1. Obter todos os alimentos
 
 ```bash
-`curl http://localhost:8080/tabela-alimentos` 
+`curl http://localhost:5000/tabela-alimentos` 
 ```
 ### 2. Buscar alimentos por nome
 
 ```bash
-`curl http://localhost:8080/buscar-alimento?nome=Arroz` 
+`curl http://localhost:5000/buscar-alimento?nome=Arroz` 
 ```
 ## Contribuições
 

@@ -9,7 +9,7 @@ import (
 )
 
 func StartDB() ([]models.Alimento, error) {
-	jsonData, err := os.ReadFile("./pkg/tabela_alimentos.json")
+	jsonData, err := os.ReadFile("tabela_alimentos.json")
 	if err != nil {
 		fmt.Println("Erro ao ler o arquivo JSON:", err)
 		return []models.Alimento{}, err
