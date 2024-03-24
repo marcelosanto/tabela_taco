@@ -6,6 +6,13 @@ Esta é uma API simples em Golang para acessar uma tabela de alimentos. A tabela
 
 Certifique-se de ter o Go instalado em seu ambiente de desenvolvimento.
 
+## Telas
+
+![Screenshot 2024-03-24 at 13-58-18 Screenshot](https://github.com/marcelosanto/tabela_taco/assets/11478538/df2e96e5-fd42-4beb-9e36-909f18e40786)
+
+![Screenshot 2024-03-24 at 13-58-47 Screenshot](https://github.com/marcelosanto/tabela_taco/assets/11478538/39be498d-4b7d-4cd3-8f3a-f5617daf2b48)
+
+
 ## Instalação e Execução
 
 1. Clone o repositório:
@@ -22,7 +29,7 @@ cd seu-repositorio
 go run main.go
 ```
 
-O servidor será iniciado em http://localhost:8080.
+O servidor será iniciado em http://localhost:5000.
 
 ## Endpoints
 
