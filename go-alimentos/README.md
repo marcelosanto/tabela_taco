@@ -1,6 +1,6 @@
 # Tabela de Alimentos API em Golang
 
-Esta é uma API simples em Golang para acessar uma tabela de alimentos. A tabela é carregada a partir de um arquivo JSON local e fornece endpoints para obter todos os alimentos ou buscar alimentos por nome.
+Esta é uma API simples em Golang para acessar uma tabela de alimentos. A tabela é carregada a partir de um arquivo JSON local e fornece endpoints para obter todos os alimentos ou buscar alimentos por nome. a exibição é pro meio do htmx.
 
 ## Pré-requisitos
 
