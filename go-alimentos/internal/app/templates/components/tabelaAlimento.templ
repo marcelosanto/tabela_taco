@@ -1,0 +1,44 @@
+package components
+
+import "go-alimentos/internal/app/models"
+import "go-alimentos/internal/app/utils"
+
+templ TabelaAlimento(food models.Alimento) {
+	<table class="table is-bordered is-striped is-narrow is-hoverable tabela-nutricional">
+		<tbody>
+			<tr>
+				<th>Quantidade por porção</th>
+				<td colspan="2">100g</td>
+			</tr>
+			<tr>
+				<th>Energia</th>
+				<td>{ utils.FloatRoundToString(food.EnergyKj) } kj</td>
+				<td>{ utils.FloatRoundToString(food.EnergyKcal) } kcal</td>
+			</tr>
+			<tr>
+				<th>Carboidratos</th>
+				<td colspan="2">{ utils.FloatRoundToString(food.CarbohydrateG) }g</td>
+			</tr>
+			<tr>
+				<th>Proteínas</th>
+				<td colspan="2">{ utils.FloatRoundToString(food.ProteinG) }g</td>
+			</tr>
+			<tr>
+				<th>Colesterol</th>
+				<td colspan="2">{ utils.FloatRoundToString(food.CholesterolMg) }g</td>
+			</tr>
+			<tr>
+				<th>Fibras</th>
+				<td colspan="2">{ utils.FloatRoundToString(food.FiberG) }g</td>
+			</tr>
+			<tr>
+				<th>Sódio</th>
+				<td colspan="2">{ utils.FloatRoundToString(food.SodiumMg) }mg</td>
+			</tr>
+			<tr>
+				<th>Potássio</th>
+				<td colspan="2">{ utils.FloatRoundToString(food.PotassiumMg) }mg</td>
+			</tr>
+		</tbody>
+	</table>
+}
