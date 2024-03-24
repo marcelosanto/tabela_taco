@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"go-alimentos/controllers"
+	"go-alimentos/internal/app/controllers"
 
 	"github.com/gin-gonic/gin"
 )

@@ -1,9 +1,10 @@
 package server
 
 import (
-	"github.com/gin-gonic/gin"
-	"go-alimentos/server/routes"
+	"go-alimentos/internal/app/server/routes"
 	"log"
+
+	"github.com/gin-gonic/gin"
 )
 
 type Server struct {

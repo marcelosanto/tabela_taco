@@ -1,0 +1,40 @@
+package templates
+
+import "go-alimentos/internal/app/models"
+import "strconv"
+import "go-alimentos/internal/app/utils"
+
+templ Alimentos(alimentos []models.Alimento) {
+	<div class="container">
+		<h1 class="title">Lista de Tacos</h1>
+		<div class="box">
+			<ul>
+				for _, item := range alimentos {
+					<div class="taco-item" onclick="toggleDetails(this)">
+						<h2 class="title is-4">{ item.Description }</h2>
+						<!-- Detalhes do Taco (escondido por padrão) -->
+						<div class="taco-details">
+							<h2 class="subtitle">Categoria: { item.Category }</h2>
+							<p>Energia (kcal): { utils.FloatRoundToString(item.EnergyKcal) }</p>
+							<p>Energia (kJ): { utils.FloatRoundToString(item.EnergyKj) }</p>
+							<p>Proteína: { utils.FloatToString(item.ProteinG) }</p>
+							<p>Lípidos: { utils.FloatToString(item.LipidG) }</p>
+							<p>Colesterol: { utils.FloatToString(item.CholesterolMg) }</p>
+							<p>Carboidratos: { utils.FloatToString(item.CarbohydrateG) }</p>
+							<p>Fibra: { utils.FloatToString(item.FiberG) }</p>
+							<p>Cálcio: { utils.FloatToString(item.CalciumMg) }</p>
+							<p>Magnésio: { utils.FloatToString(item.MagnesiumMg) }</p>
+							<p>Manganês: { utils.FloatToString(item.ManganeseMg) }</p>
+							<p>Fósforo: { utils.FloatToString(item.PhosphorusMg) }</p>
+							<p>Ferro: { utils.FloatToString(item.IronMg) }</p>
+							<p>Sódio: { utils.FloatToString(item.SodiumMg) }</p>
+							<p>Potássio: { utils.FloatToString(item.PotassiumMg) }</p>
+							<p>Cobre: { utils.FloatToString(item.CopperMg) }</p>
+							<p>Zinco: { utils.FloatToString(item.ZincMg) }</p>
+						</div>
+					</div>
+				}
+			</ul>
+		</div>
+	</div>
+}

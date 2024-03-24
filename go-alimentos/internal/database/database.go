@@ -3,12 +3,13 @@ package database
 import (
 	"encoding/json"
 	"fmt"
-	"go-alimentos/models"
+	"go-alimentos/internal/app/models"
+
 	"os"
 )
 
 func StartDB() ([]models.Alimento, error) {
-	jsonData, err := os.ReadFile("tabela_alimentos.json")
+	jsonData, err := os.ReadFile("./pkg/tabela_alimentos.json")
 	if err != nil {
 		fmt.Println("Erro ao ler o arquivo JSON:", err)
 		return []models.Alimento{}, err

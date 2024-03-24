@@ -1,8 +1,6 @@
 package main
 
-import (
-	"go-alimentos/server"
-)
+import "go-alimentos/internal/app/server"
 
 func main() {
 	server := server.NewServer()

@@ -1,0 +1,33 @@
+package templates
+
+templ Index(contents templ.Component) {
+	<html>
+		<head>
+			<script src="https://unpkg.com/htmx.org@1.9.8"></script>
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"/>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+			<style>
+    /* Estilo para esconder os detalhes inicialmente */
+    .taco-details {
+      display: none;
+    }
+    /* Estilo para mostrar os detalhes quando o item da lista é clicado */
+    .taco-item.expanded .taco-details {
+      display: block;
+    }
+  </style>
+		</head>
+		<body>
+			<div>
+				@contents
+			</div>
+			<script>
+    function toggleDetails(taco) {
+      // Alternar a classe "expanded" para mostrar/esconder os detalhes
+      taco.classList.toggle('expanded');
+    }
+    
+  </script>
+		</body>
+	</html>
+}
