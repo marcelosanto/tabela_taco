@@ -57,9 +57,9 @@ func TabelaAlimento(food models.Alimento) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var4 string
-		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(utils.FloatRoundToString(food.CarbohydrateG))
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(utils.FloatToString(food.CarbohydrateG))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/templates/components/tabelaAlimento.templ`, Line: 20, Col: 66}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/templates/components/tabelaAlimento.templ`, Line: 20, Col: 61}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
@@ -70,24 +70,63 @@ func TabelaAlimento(food models.Alimento) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var5 string
-		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(utils.FloatRoundToString(food.ProteinG))
+		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(utils.FloatToString(food.ProteinG))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/templates/components/tabelaAlimento.templ`, Line: 24, Col: 61}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/templates/components/tabelaAlimento.templ`, Line: 24, Col: 56}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("g</td></tr><tr><th>Colesterol</th><td colspan=\"2\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("g</td></tr><tr><th>Gorduras: </th><td colspan=\"2\"><tr><th>Saturadas</th><td colspan=\"2\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var6 string
-		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(utils.FloatRoundToString(food.CholesterolMg))
+		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(utils.FloatToString(food.SaturatedG))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/templates/components/tabelaAlimento.templ`, Line: 28, Col: 66}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/templates/components/tabelaAlimento.templ`, Line: 31, Col: 60}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("g</td></tr><tr><th>Monoinsaturadas</th><td colspan=\"2\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var7 string
+		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(utils.FloatToString(food.MonounsaturatedG))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/templates/components/tabelaAlimento.templ`, Line: 35, Col: 66}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("g</td></tr><tr><th>Poliinsaturadas</th><td colspan=\"2\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var8 string
+		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(utils.FloatToString(food.PolyunsaturatedG))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/templates/components/tabelaAlimento.templ`, Line: 39, Col: 66}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("g</td></tr></td></tr><tr><th>Colesterol</th><td colspan=\"2\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var9 string
+		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(utils.FloatToString(food.CholesterolMg))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/templates/components/tabelaAlimento.templ`, Line: 45, Col: 61}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -95,12 +134,12 @@ func TabelaAlimento(food models.Alimento) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var7 string
-		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(utils.FloatRoundToString(food.FiberG))
+		var templ_7745c5c3_Var10 string
+		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(utils.FloatToString(food.FiberG))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/templates/components/tabelaAlimento.templ`, Line: 32, Col: 59}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/templates/components/tabelaAlimento.templ`, Line: 49, Col: 54}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -108,12 +147,12 @@ func TabelaAlimento(food models.Alimento) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var8 string
-		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(utils.FloatRoundToString(food.SodiumMg))
+		var templ_7745c5c3_Var11 string
+		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(utils.FloatToString(food.SodiumMg))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/templates/components/tabelaAlimento.templ`, Line: 36, Col: 61}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/templates/components/tabelaAlimento.templ`, Line: 53, Col: 56}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -121,12 +160,12 @@ func TabelaAlimento(food models.Alimento) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var9 string
-		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(utils.FloatRoundToString(food.PotassiumMg))
+		var templ_7745c5c3_Var12 string
+		templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(utils.FloatToString(food.PotassiumMg))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/templates/components/tabelaAlimento.templ`, Line: 40, Col: 64}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/templates/components/tabelaAlimento.templ`, Line: 57, Col: 59}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -17,27 +17,44 @@ templ TabelaAlimento(food models.Alimento) {
 			</tr>
 			<tr>
 				<th>Carboidratos</th>
-				<td colspan="2">{ utils.FloatRoundToString(food.CarbohydrateG) }g</td>
+				<td colspan="2">{ utils.FloatToString(food.CarbohydrateG) }g</td>
 			</tr>
 			<tr>
 				<th>Proteínas</th>
-				<td colspan="2">{ utils.FloatRoundToString(food.ProteinG) }g</td>
+				<td colspan="2">{ utils.FloatToString(food.ProteinG) }g</td>
+			</tr>
+			<tr>
+				<th>Gorduras: </th>
+				<td colspan="2">
+					<tr>
+						<th>Saturadas</th>
+						<td colspan="2">{ utils.FloatToString(food.SaturatedG) }g</td>
+					</tr>
+					<tr>
+						<th>Monoinsaturadas</th>
+						<td colspan="2">{ utils.FloatToString(food.MonounsaturatedG) }g</td>
+					</tr>
+					<tr>
+						<th>Poliinsaturadas</th>
+						<td colspan="2">{ utils.FloatToString(food.PolyunsaturatedG) }g</td>
+					</tr>
+				</td>
 			</tr>
 			<tr>
 				<th>Colesterol</th>
-				<td colspan="2">{ utils.FloatRoundToString(food.CholesterolMg) }g</td>
+				<td colspan="2">{ utils.FloatToString(food.CholesterolMg) }g</td>
 			</tr>
 			<tr>
 				<th>Fibras</th>
-				<td colspan="2">{ utils.FloatRoundToString(food.FiberG) }g</td>
+				<td colspan="2">{ utils.FloatToString(food.FiberG) }g</td>
 			</tr>
 			<tr>
 				<th>Sódio</th>
-				<td colspan="2">{ utils.FloatRoundToString(food.SodiumMg) }mg</td>
+				<td colspan="2">{ utils.FloatToString(food.SodiumMg) }mg</td>
 			</tr>
 			<tr>
 				<th>Potássio</th>
-				<td colspan="2">{ utils.FloatRoundToString(food.PotassiumMg) }mg</td>
+				<td colspan="2">{ utils.FloatToString(food.PotassiumMg) }mg</td>
 			</tr>
 		</tbody>
 	</table>
