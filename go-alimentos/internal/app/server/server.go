@@ -13,6 +13,8 @@ type Server struct {
 }
 
 func NewServer() Server {
+	gin.SetMode(gin.ReleaseMode)
+
 	return Server{
 		port:   ":5000",
 		server: gin.Default(),

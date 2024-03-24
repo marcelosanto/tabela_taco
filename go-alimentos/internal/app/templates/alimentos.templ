@@ -1,19 +1,18 @@
 package templates
 
 import "go-alimentos/internal/app/models"
-import "strconv"
 import "go-alimentos/internal/app/utils"
 
 templ Alimentos(alimentos []models.Alimento) {
-	<div class="container">
-		<h1 class="title">Lista de Tacos</h1>
-		<div class="box">
+	<div class="column is-6">
+		<h1 class="title">Lista de Alimentos</h1>
+		<div class="list">
 			<ul>
 				for _, item := range alimentos {
-					<div class="taco-item" onclick="toggleDetails(this)">
+					<div class="taco-item list-item box" onclick="toggleDetails(this)">
 						<h2 class="title is-4">{ item.Description }</h2>
 						<!-- Detalhes do Taco (escondido por padrão) -->
-						<div class="taco-details">
+						<div class="taco-details ">
 							<h2 class="subtitle">Categoria: { item.Category }</h2>
 							<p>Energia (kcal): { utils.FloatRoundToString(item.EnergyKcal) }</p>
 							<p>Energia (kJ): { utils.FloatRoundToString(item.EnergyKj) }</p>
@@ -37,4 +36,11 @@ templ Alimentos(alimentos []models.Alimento) {
 			</ul>
 		</div>
 	</div>
+	<script>
+    function toggleDetails(taco) {
+      // Alternar a classe "expanded" para mostrar/esconder os detalhes
+      taco.classList.toggle('expanded');
+    }
+    
+  </script>
 }

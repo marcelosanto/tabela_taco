@@ -23,7 +23,7 @@ func Index(contents templ.Component) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html><head><script src=\"https://unpkg.com/htmx.org@1.9.8\"></script><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css\"><link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\"><style>\n    /* Estilo para esconder os detalhes inicialmente */\n    .taco-details {\n      display: none;\n    }\n    /* Estilo para mostrar os detalhes quando o item da lista é clicado */\n    .taco-item.expanded .taco-details {\n      display: block;\n    }\n  </style></head><body><div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html><head><script src=\"https://unpkg.com/htmx.org@1.9.8\"></script><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css\"><link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\"><style>\n    /* Estilo para esconder os detalhes inicialmente */\n    .taco-details {\n      display: none;\n    }\n    /* Estilo para mostrar os detalhes quando o item da lista é clicado */\n    .taco-item.expanded .taco-details {\n      display: block;\n    }\n  </style></head><body><nav class=\"navbar is-primary\" role=\"navigation\" aria-label=\"main navigation\"><div class=\"navbar-brand\"><a class=\"navbar-item has-text-centered\" href=\"#\"><strong>Tabela de Lista de Alimentos</strong></a></div><div class=\"navbar-menu\"><div class=\"navbar-end\"><div class=\"navbar-item\"><div class=\"field has-addons\"><form action=\"/api/v1/alimentos/\" method=\"POST\"><input class=\"form-control input is-large\" type=\"search\" name=\"search\" placeholder=\"Buscar Alimentos...\" hx-post=\"/api/v1/alimentos/\" hx-trigger=\"keyup changed delay:500ms, search\"></form></div></div></div></div></nav><div class=\"content columns is-mobile is-centered\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -31,7 +31,7 @@ func Index(contents templ.Component) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><script>\n    function toggleDetails(taco) {\n      // Alternar a classe \"expanded\" para mostrar/esconder os detalhes\n      taco.classList.toggle('expanded');\n    }\n    \n  </script></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

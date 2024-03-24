@@ -7,12 +7,15 @@ import (
 )
 
 func ConfigRoutes(router *gin.Engine) *gin.Engine {
+	router.ForwardedByClientIP = true
+	router.SetTrustedProxies([]string{"127.0.0.1"})
+
 	main := router.Group("api/v1")
 	{
 		alimentos := main.Group("alimentos")
 		{
 			alimentos.GET("/", controllers.Listar_Alimentos)
-			alimentos.GET("/:comida", controllers.Buscar_Alimento)
+			alimentos.POST("/", controllers.Buscar_Alimento)
 		}
 	}
 

@@ -18,16 +18,34 @@ templ Index(contents templ.Component) {
   </style>
 		</head>
 		<body>
-			<div>
+			<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+				<div class="navbar-brand">
+					<a class="navbar-item has-text-centered" href="#">
+						<strong>Tabela de Lista de Alimentos</strong>
+					</a>
+				</div>
+				<div class="navbar-menu">
+					<div class="navbar-end">
+						<div class="navbar-item">
+							<div class="field has-addons">
+								<form action="/api/v1/alimentos/" method="POST">
+									<input
+										class="form-control input is-large"
+										type="search"
+										name="search"
+										placeholder="Buscar Alimentos..."
+										hx-post="/api/v1/alimentos/"
+										hx-trigger="keyup changed delay:500ms, search"
+									/>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<div class="content columns is-mobile is-centered">
 				@contents
 			</div>
-			<script>
-    function toggleDetails(taco) {
-      // Alternar a classe "expanded" para mostrar/esconder os detalhes
-      taco.classList.toggle('expanded');
-    }
-    
-  </script>
 		</body>
 	</html>
 }

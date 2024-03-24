@@ -4,6 +4,7 @@ import (
 	"go-alimentos/internal/app/models"
 	"go-alimentos/internal/app/templates"
 	"go-alimentos/internal/database"
+	"log"
 	"net/http"
 	"strings"
 
@@ -26,7 +27,9 @@ func Listar_Alimentos(c *gin.Context) {
 }
 
 func Buscar_Alimento(c *gin.Context) {
-	comida := c.Param("comida")
+	comida := c.Request.FormValue("search")
+
+	log.Print("Comida:", comida)
 
 	db, err := database.StartDB()
 	if err != nil {
@@ -50,6 +53,6 @@ func Buscar_Alimento(c *gin.Context) {
 		})
 	}
 
-	c.JSON(http.StatusOK, all)
-
+	component := templates.Index(templates.Alimentos(all))
+	component.Render(c, c.Writer)
 }
