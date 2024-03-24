@@ -1,0 +1,21 @@
+package components
+
+templ Search() {
+	<form action="/api/v1/alimentos/" method="POST">
+		<div class="field">
+			<p class="control has-icons-left has-icons-right">
+				<input
+					class="form-control input is-medium"
+					type="search"
+					name="search"
+					placeholder="Buscar Alimentos..."
+					hx-post="/api/v1/alimentos/"
+					hx-trigger="keyup changed delay:500ms, search"
+				/>
+				<span class="icon is-small is-left">
+					<i class="fas fa-envelope"></i>
+				</span>
+			</p>
+		</div>
+	</form>
+}

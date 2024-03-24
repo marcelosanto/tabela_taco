@@ -1,8 +1,11 @@
 package templates
 
-templ Index(contents templ.Component) {
+import "go-alimentos/internal/app/templates/components"
+
+templ Index(contents templ.Component, erroSearch bool) {
 	<html>
 		<head>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<script src="https://unpkg.com/htmx.org@1.9.8"></script>
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"/>
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
@@ -24,25 +27,18 @@ templ Index(contents templ.Component) {
 						<strong>Tabela de Lista de Alimentos</strong>
 					</a>
 				</div>
-				<div class="navbar-menu">
-					<div class="navbar-end">
-						<div class="navbar-item">
-							<div class="field has-addons">
-								<form action="/api/v1/alimentos/" method="POST">
-									<input
-										class="form-control input is-large"
-										type="search"
-										name="search"
-										placeholder="Buscar Alimentos..."
-										hx-post="/api/v1/alimentos/"
-										hx-trigger="keyup changed delay:500ms, search"
-									/>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
 			</nav>
+			<div class="box m-1">
+				@components.Search()
+				if erroSearch {
+					<span class="icon-text has-text-danger">
+						<span class="icon has-text-danger">
+							<i class="fas fa-ban"></i>
+						</span>
+						<span>Alimento procurado não encontrado</span>
+					</span>
+				}
+			</div>
 			<div class="content columns is-mobile is-centered">
 				@contents
 			</div>
