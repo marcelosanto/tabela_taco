@@ -69,12 +69,12 @@ O aplicativo estará disponível em http://localhost:5000.
 ### 1. Obter todos os alimentos
 
 ```bash
-`curl http://localhost:5000/tabela-alimentos` 
+`curl http://localhost:5000/api/v1/alimentos/` 
 ```
 ### 2. Buscar alimentos por nome
 
 ```bash
-`curl http://localhost:5000/buscar-alimento?nome=Arroz` 
+`curl http://localhost:5000/api/v1/alimentos?nome=Arroz` 
 ```
 ## Contribuições
 

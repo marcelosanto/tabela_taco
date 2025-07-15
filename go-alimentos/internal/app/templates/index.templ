@@ -11,16 +11,132 @@ templ Index(contents templ.Component, erroSearch bool) {
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"/>
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 			<style>
-    /* Estilo para esconder os detalhes inicialmente */
-    .taco-details {
-      display: none;
-    }
-    /* Estilo para mostrar os detalhes quando o item da lista é clicado */
-    .taco-item.expanded .taco-details {
-      display: block;
-    }
-	
-  </style>
+				/* Grid de alimentos */
+				.alimentos-grid {
+					display: grid;
+					grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+					gap: 1rem;
+					padding: 1rem;
+				}
+
+				/* Card de alimento */
+				.alimento-card {
+					border: 1px solid #e8e8e8;
+					border-radius: 8px;
+					padding: 1rem;
+					background: white;
+					transition: all 0.3s ease;
+					cursor: pointer;
+					position: relative;
+					box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+				}
+
+				.alimento-card:hover {
+					box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+					transform: translateY(-2px);
+				}
+
+				/* Header do card */
+				.card-header {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					margin-bottom: 0.5rem;
+				}
+
+				.card-title {
+					flex: 1;
+					margin: 0;
+					font-size: 1.1rem;
+					font-weight: 600;
+					color: #363636;
+				}
+
+				/* Botão de expandir */
+				.expand-btn {
+					background: #3273dc;
+					color: white;
+					border: none;
+					border-radius: 50%;
+					width: 32px;
+					height: 32px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+					transition: all 0.3s ease;
+					font-size: 14px;
+				}
+
+				.expand-btn:hover {
+					background: #2366d1;
+					transform: scale(1.1);
+				}
+
+				.expand-btn.expanded {
+					background: #48c774;
+					transform: rotate(45deg);
+				}
+
+				/* Categoria */
+				.categoria-tag {
+					display: inline-block;
+					background: #f5f5f5;
+					color: #4a4a4a;
+					padding: 0.25rem 0.5rem;
+					border-radius: 4px;
+					font-size: 0.8rem;
+					margin-bottom: 0.5rem;
+				}
+
+				/* Detalhes do alimento */
+				.alimento-details {
+					max-height: 0;
+					overflow: hidden;
+					transition: max-height 0.3s ease;
+					padding-top: 0;
+				}
+
+				.alimento-card.expanded .alimento-details {
+					max-height: 500px;
+					padding-top: 1rem;
+					border-top: 1px solid #e8e8e8;
+				}
+
+				/* Responsividade */
+				@media (max-width: 768px) {
+					.alimentos-grid {
+						grid-template-columns: 1fr;
+						padding: 0.5rem;
+					}
+				}
+
+				/* Melhorias na barra de pesquisa */
+				.search-container {
+					background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+					color: white;
+					padding: 1.5rem;
+					margin-bottom: 1rem;
+				}
+
+				.search-container .box {
+					background: rgba(255, 255, 255, 0.1);
+					border: none;
+					backdrop-filter: blur(10px);
+				}
+
+				/* Erro de pesquisa */
+				.error-message {
+					background: #ff6b6b;
+					color: white;
+					padding: 0.75rem;
+					border-radius: 4px;
+					margin-top: 1rem;
+					display: flex;
+					align-items: center;
+					gap: 0.5rem;
+				}
+			</style>
 		</head>
 		<body>
 			<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
@@ -30,18 +146,18 @@ templ Index(contents templ.Component, erroSearch bool) {
 					</a>
 				</div>
 			</nav>
-			<div class="box m-1">
+			
+			<div class="search-container">
 				@components.Search()
 				if erroSearch {
-					<span class="icon-text has-text-danger">
-						<span class="icon has-text-danger">
-							<i class="fas fa-ban"></i>
-						</span>
+					<div class="error-message">
+						<i class="fas fa-exclamation-triangle"></i>
 						<span>Alimento procurado não encontrado</span>
-					</span>
+					</div>
 				}
 			</div>
-			<div class="content columns is-mobile is-centered">
+			
+			<div class="container">
 				@contents
 			</div>
 		</body>

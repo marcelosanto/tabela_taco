@@ -4,27 +4,55 @@ import "go-alimentos/internal/app/models"
 import "go-alimentos/internal/app/templates/components"
 
 templ Alimentos(alimentos []models.Alimento) {
-	<div class="column is-6">
-		<div class="list">
-			<ul>
-				for _, item := range alimentos {
-					<div class="taco-item list-item box" onclick="toggleDetails(this)">
-						<h2 class="title is-4">{ item.Description }</h2>
-						<!-- Detalhes do Taco (escondido por padrão) -->
-						<div class="taco-details ">
-							<h2 class="subtitle">Categoria: { item.Category }</h2>
-							@components.TabelaAlimento(item)
-						</div>
-					</div>
-				}
-			</ul>
-		</div>
+	<div class="alimentos-grid">
+		for _, item := range alimentos {
+			<div class="alimento-card" onclick="toggleDetails(this)">
+				<div class="card-header">
+					<h3 class="card-title">{ item.Description }</h3>
+					<button class="expand-btn" onclick="event.stopPropagation();">
+						<i class="fas fa-plus"></i>
+					</button>
+				</div>
+				
+				<div class="categoria-tag">
+					<i class="fas fa-tag"></i>
+					{ item.Category }
+				</div>
+				
+				<div class="alimento-details">
+					@components.TabelaAlimento(item)
+				</div>
+			</div>
+		}
 	</div>
+	
 	<script>
-    function toggleDetails(taco) {
-      // Alternar a classe "expanded" para mostrar/esconder os detalhes
-      taco.classList.toggle('expanded');
-    }
-    
-  </script>
+		function toggleDetails(card) {
+			const expandBtn = card.querySelector('.expand-btn');
+			const icon = expandBtn.querySelector('i');
+			
+			// Alternar a classe "expanded" para mostrar/esconder os detalhes
+			card.classList.toggle('expanded');
+			
+			// Mudar o ícone e a classe do botão
+			if (card.classList.contains('expanded')) {
+				icon.classList.remove('fa-plus');
+				icon.classList.add('fa-minus');
+				expandBtn.classList.add('expanded');
+			} else {
+				icon.classList.remove('fa-minus');
+				icon.classList.add('fa-plus');
+				expandBtn.classList.remove('expanded');
+			}
+		}
+		
+		// Adicionar evento de clique ao botão também
+		document.addEventListener('click', function(e) {
+			if (e.target.closest('.expand-btn')) {
+				e.preventDefault();
+				const card = e.target.closest('.alimento-card');
+				toggleDetails(card);
+			}
+		});
+	</script>
 }
